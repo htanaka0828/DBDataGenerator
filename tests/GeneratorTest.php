@@ -16,7 +16,7 @@ class GeneratorTest extends \PHPUnit_Framework_TestCase
     {
         $target = new Target();
         // CREATE DATABASE test_db DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-        $target->connection([
+        $target->addConnection([
             'driver'    => 'mysql',
             'host'      => 'localhost',
             'database'  => 'test_db',

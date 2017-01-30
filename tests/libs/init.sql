@@ -1,0 +1,26 @@
+CREATE DATABASE test_db CHARACTER SET utf8;
+use test_db;
+CREATE TABLE `parent` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL DEFAULT '',
+  `create_datetime` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `update_datetime` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `delete_datetime` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+CREATE TABLE `child` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `parent_id` INT(10) NOT NULL,
+  `name` VARCHAR(255) NOT NULL DEFAULT '',
+  `create_datetime` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `update_datetime` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `delete_datetime` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;

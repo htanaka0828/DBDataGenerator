@@ -24,9 +24,28 @@ class Generator
      * @param string $name
      * @return $this
      */
-    public function connection(array $params = [], $name = 'default')
+    public function addConnection(array $params = [], $name = 'default')
     {
         $this->capsule->addConnection($params, $name);
         return $this;
+    }
+
+    /**
+     * @param string $name
+     * @return \Illuminate\Database\Connection
+     */
+    public function getConnection($name = 'default')
+    {
+        return $this->capsule->getConnection($name);
+    }
+
+    /**
+     * @param string $tableName
+     * @param string $connectionName
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function getBuilder($tableName = '', $connectionName = 'default')
+    {
+        return $this->getConnection($connectionName)->table($tableName);
     }
 }
